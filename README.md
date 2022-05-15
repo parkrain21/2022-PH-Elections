@@ -15,4 +15,7 @@ You can access the COMELEC Transparency server [here](https://2022electionresult
 1. Just run the 'elections_extract.py' on your terminal
 2. The data would automatically be populated on a csv file named 'elections.csv'
 
-ETL process is quite inefficient for now, will upload the data when finished!
+#### Known errors to be addressed:
+- ETL process is quite slow (still unsure if I could speed this up?)
+- Generates some blank records (fails to parse the HTML data)
+- Some sleep timings are off, will look for optimal values so errors would not arise.
