@@ -1,11 +1,14 @@
 import csv
 import os
 from bs4 import BeautifulSoup
+import logging
 
-
+logging.basicConfig(filename="elections.log", 
+					format='[%(levelname)s]:  %(message)s', 
+					level=logging.INFO) 
 
 # Transform and Load process
-def wrangle(webpage):
+def wrangle(filename, webpage, coords):
     soup = BeautifulSoup(webpage, 'lxml')
 
     x = soup.find_all('div', class_='col-xs-7 no-side-padding gen-inf-label ng-binding')
@@ -23,7 +26,9 @@ def wrangle(webpage):
     national_results = {k:v for k,v in zip(result[::3], result[1::3])}
     row = {**common_info, **national_results}
 
-    store_data('elections.csv', row)
+    store_data(filename, row)
+    logging.info(f"{len(row)} entries added on coords: {coords}")
+
 
 def create_csv(filename, headers):
     if filename[-3:] != 'csv':
@@ -32,6 +37,7 @@ def create_csv(filename, headers):
     with open(filename, mode='w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
+
 
 def store_data(filename, row):  
     # Check if file doesn't exist, if not then create it.
