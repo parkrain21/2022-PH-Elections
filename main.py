@@ -33,7 +33,7 @@ def get_precinct_codes():
 def main():
     precinct_codes = get_precinct_codes()
 
-    i = 275      #edit this for manual config
+    i = 0      #edit this for manual config
 
     # I used while loop for automatic retry
     while i < len(precinct_codes):
