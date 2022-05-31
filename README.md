@@ -1,5 +1,5 @@
 # 2022-PH-Elections
-9 May 2022 - Philippine National Elections webscraper using Selenium (Python)
+31 May 2022 - Philippine National Elections webscraper using Selenium (Python)
 
 You can access the COMELEC Transparency server [here](https://2022electionresults.comelec.gov.ph/#/er/0/).
 
@@ -12,10 +12,9 @@ You can access the COMELEC Transparency server [here](https://2022electionresult
 - time
 
 #### Instructions:
-1. Just run the 'elections_extract.py' on your terminal
-2. The data would automatically be populated on a csv file named 'elections.csv'
+1. Just run the 'main.py' on your terminal and the csv file will be generated.
+2. There are some records that do not have existing ERs, so those are not included in the csv file.
+3. Will try to save those in a separate file, for the meantime it is all in the log files.
 
 #### Known errors to be addressed:
-- ETL process is quite slow (still unsure if I could speed this up?)
-- Generates some blank records (fails to parse the HTML data)
-- Some sleep timings are off, will look for optimal values so errors would not arise.
+- Old script takes 30+ seconds to 3 seconds average (as of 31 May 2022)
