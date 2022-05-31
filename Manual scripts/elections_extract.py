@@ -17,9 +17,9 @@ driver = webdriver.Edge()
 
 # These indicates the current data being generated, see line 67
 i = 0
-j = 0
-k = 0
-l = 0
+j = 1
+k = 37
+l = 7
 m = 0
 
 df = pd.DataFrame()
