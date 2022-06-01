@@ -46,3 +46,8 @@ def store_data(filename, row):
     with open(filename, mode='a', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=colnames)
         writer.writerow(row)
+
+def store_blank(filename, code):
+    with open(filename, mode='a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['','','',code])

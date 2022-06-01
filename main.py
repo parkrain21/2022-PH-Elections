@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
-from transload import wrangle, store_data
+from transload import wrangle, store_data, store_blank
 import pandas as pd
 import time
 import logging
@@ -52,7 +52,7 @@ def main():
                 print(f"{na} | index {i}, pcode: {precinct_codes[i]} | elapsed time: {round(time.time()-start_time,2)} secs.")
                 logging.info(f"{na} | index {i}, pcode: {precinct_codes[i]} | elapsed time: {round(time.time()-start_time,2)} secs.")
                 i += 1
-                store_data('test.csv', '\n') 
+                store_blank('test.csv', precinct_codes[i]) 
 
             # If data is available
             else:   
